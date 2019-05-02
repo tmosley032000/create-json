@@ -16,7 +16,7 @@ for line in f:
      x = line.split(":")
      j += '"%s": "%s",' %(x[0].strip(),x[1].strip())
 
-  elif "total:" in line:
+  elif any(item in line for item in ['total:','execution time (avg/stddev):']):
      x = line.split(":")
      j += '"%s": "%s" }},' %(x[0].strip(),x[1].strip()) 
 
@@ -27,9 +27,6 @@ for line in f:
      x = line.split(":")
      j += '"%s": "%s" },' %(x[0].strip(), x[1].strip())
 
-  elif "execution time (avg/stddev):" in line:
-     x = line.split(":")
-     j+= '"%s": "%s" }},'  %(x[0].strip(), x[1].strip())
 j = j[:-1]
 j += "}"
 print j
