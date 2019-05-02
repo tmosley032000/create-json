@@ -3,7 +3,7 @@ import pdb
 
 
 
-f = open("foo.txt")
+f = open("sysbench_output.txt")
 #opening bracket
 j = "{"
 
@@ -32,4 +32,4 @@ for line in f:
      j+= '"%s": "%s" }},'  %(x[0].strip(), x[1].strip())
 j = j[:-1]
 j += "}"
-
+print j
